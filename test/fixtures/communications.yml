@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  name: MyString
+  description: MyText
+  template: one
+  body: MyText
+  tags: MyString
+  status: 1
+  flags: 1
+
+two:
+  user: two
+  name: MyString
+  description: MyText
+  template: two
+  body: MyText
+  tags: MyString
+  status: 1
+  flags: 1

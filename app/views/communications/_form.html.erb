@@ -1,0 +1,12 @@
+<%= bootstrap_form_for(communication,
+    layout: :horizontal,
+    label_col: 'col-sm-3',
+    control_col: 'col-sm-9',
+    role: :form) do |f| %>
+
+    <%= f.text_field :name %>
+    <%= f.text_area :description %>
+    <%= f.text_field :template_id %>
+    <%= f.text_area :body %>
+    <%= yield f %>
+<% end %>

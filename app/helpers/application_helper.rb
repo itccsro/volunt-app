@@ -6,6 +6,12 @@ module ApplicationHelper
     end
   end
 
+  def glyphicon_link(link)
+    link_to link, class: 'btn btn-link link-to' do
+      content_tag(:span, "",  class: "glyphicon glyphicon-play-circle")
+    end
+  end
+
   def ensure_http_scheme(url)
     uri = URI.parse(url)
     if (!uri.scheme)

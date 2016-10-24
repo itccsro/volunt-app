@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+   <span class="text-info notice"><%= notice %></span>
+  </div>
+  <div class="row">
+    <ul class="dl-horizontal">
+      <dt>Name<dt>
+      <dd><%= @communication.name %></dd>
+      <dt>Autor<dt>
+      <dd><%= @communication.user.email %></dd>
+      <dt>Description<dt>
+      <dd><%= @communication.description %></dd>
+      <dt>Template<dt>
+      <dd><%= @communication.template.name %></dd>
+      <dt>Body<dt>
+      <dd><%= @communication.body %></dd>
+      <dt>Status<dt>
+      <dd><%= @communication.status_string %></dd>
+      <dt>Scheduled time<dt>
+      <dd><%= @communication.scheduled_time %></dd>
+      <dd>
+        <%= form_for(@communication, method: :delete) do %>
+          <div class="btn-group" role='group'>
+            <%= link_to 'Edit', edit_communication_path(@communication), class: 'btn btn-default' %>
+            <input type='submit' value='Delete' class =  'btn btn-danger' />
+          </div>
+        <% end %>
+      </dd>
+    </ul>
+  </div>
+</div>

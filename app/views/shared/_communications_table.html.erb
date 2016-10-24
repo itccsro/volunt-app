@@ -1,0 +1,23 @@
+<table class="table table-fixed table-communications">
+  <colgroup>
+    <col class="col-sm-3">
+    <col class="col-sm-2">
+    <col class="col-sm-2">
+    <col class="col-sm-2">
+    <col class="col-sm-2">
+    <col class="col-sm-1">
+  </colgroup>
+  <thead>
+    <tr>
+      <td>Nume</td>
+      <td>Author</td>
+      <td>Template</td>
+      <td>Status</td>
+      <td>Tags</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: 'shared/communication_row', collection: communications %>
+  </tbody>
+</table>

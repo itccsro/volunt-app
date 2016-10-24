@@ -16,6 +16,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :communications, shallow: true do
+    resources :recipients
+  end
+
   resources :templates
 
 end
