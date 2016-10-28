@@ -1,0 +1,19 @@
+<div class="container profile">
+  <%= render partial: 'shared/notice' %>
+  <%= render @profile do %>
+    <dl class="dl-horizontal">
+      <dt></dt>
+      <dd>
+        <div class="btn-group col-sm-9" role="group">
+          <%= link_to 'Edit', edit_profile_path(@profile), class: 'btn btn-default' %>
+        </div>
+      </dd>
+    </dl>
+  <% end %>
+  <div class="row">
+    <dl class="dl-horizontal">
+      <dt>Proiecte</dt>
+      <dd><%= render partial: 'shared/member_projects_table', locals: {members: @memberships} %></dd>
+    </dl>
+  </div>
+</div>

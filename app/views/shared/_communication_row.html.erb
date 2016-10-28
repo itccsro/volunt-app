@@ -4,5 +4,5 @@
   <td><%= communication_row.template.name %></td>
   <td><%= communication_row.status_string %></td>
   <td><%= render partial: 'shared/tags', locals: {tags: communication_row.tags } %></td>
-  <td><%= glyphicon_link communication_row %></td>
+  <td><%= glyphicon_link_to communication_row %></td>
 </tr>

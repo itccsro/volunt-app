@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+   <span class="text-info notice"><%= notice %></span>
+  </div>
+  <div class="row">
+    <dl class="dl-horizontal project">
+      <dt>Name<dt>
+      <dd><%= @project.name %></dd>
+      <dt>Leader</dt>
+      <dd><%= render partial: 'shared/profile_with_link', locals: {profile: @project.owner } %></dd>
+      <dt>Description<dt>
+      <dd><%= @project.description %></dd>
+      <dt>Links</dt>
+      <dd><%= render partial: 'shared/key_values', locals: {key_values: @project.urls } %>
+      <dt>Tags</dt>
+      <dd><%= render partial: 'shared/tags', locals: {tags: @project.tags} %></dd>
+      <dd>
+        <%= form_for(@project, method: :delete) do %>
+          <div class="btn-group" role='group'>
+            <%= link_to 'Edit', edit_project_path(@project), class: 'btn btn-default' %>
+            <input type='submit' value='Delete' class =  'btn btn-danger' />
+          </div>
+        <% end %>
+      </dd>
+      <dt>Voluntari
+          <%= link_to new_volunteer_project_members_path(@project), class: 'btn btn-link' do %>
+            <span class="glyphicon glyphicon-plus"></span>
+          <% end %>
+      </dt>
+      <dd>
+        <%= render partial: 'shared/members_profile_table', locals: {members: @volunteers} %>
+      </dd>  
+      <dt>Bursieri
+          <%= link_to new_fellow_project_members_path(@project), class: 'btn btn-link' do %>
+            <span class="glyphicon glyphicon-plus"></span>
+          <% end %>
+      </dt>
+      <dd>
+        <%= render partial: 'shared/members_profile_table', locals: {members: @fellows} %>
+      </dd>  
+    </dl>
+  </div>
+</div>

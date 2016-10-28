@@ -1,0 +1,17 @@
+<%= bootstrap_form_for(project,
+    layout: :horizontal,
+    label_col: 'col-sm-3',
+    control_col: 'col-sm-9',
+    role: :form) do |f| %>
+
+    <%= f.text_field :name, label: 'Nume' %>
+    <%= f.collection_select(:owner_id,
+          Profile.fellows,
+          :id,
+          :select_name,
+          label: 'Leader') %>
+    <%= f.text_area :description, label: 'Descriere' %>
+    <%= f.text_area :urls_string, label: 'Links' %>
+    <%= f.text_field :tags_string %>
+    <%= yield f %>
+<% end %>

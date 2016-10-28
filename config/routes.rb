@@ -10,16 +10,26 @@ Rails.application.routes.draw do
   resource :request_reset, only: [:show, :create], protocol: 'https', path: '/request-reset'
   resources :validation_tokens, only: [:show, :update], protocol: 'https'
 
-  resources :volunteers, only:[:show, :index] do
-    collection do
-      match 'search', via: [:get, :post]
+  [:volunteers, :fellows, :applicants, :coordinators].each do |p|
+    resources p do
+      collection do
+        match 'search', via: [:get, :post]
+      end
     end
   end
 
   resources :communications, shallow: true do
     resources :recipients
   end
-
+  resources :projects do
+    resources :members, except: [:new] do
+      collection do
+        get 'new_volunteer'
+        get 'new_fellow'
+      end
+    end
+  end
+  
   resources :templates
 
 end
