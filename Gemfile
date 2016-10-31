@@ -34,6 +34,10 @@ gem 'bootstrap_form'
 
 # email model validator
 gem 'email_validator'
+
+gem 'responders', '~> 2.0'
+gem 'active_model_serializers', git: 'https://github.com/rails-api/active_model_serializers.git' # , '~>0.8.0'
+gem 'as_csv'
   
 # gem 'sass-rails', git: 'https://github.com/rails/sass-rails.git'
 gem 'bootstrap-sass', '~> 3.2'

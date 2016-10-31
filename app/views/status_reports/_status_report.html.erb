@@ -16,5 +16,5 @@
   <dd><%= sanitize_html_area(status_report.details) %></dd>
   <dt>Tags</dt>
   <dd><%= render partial: 'shared/tags', locals: {tags: status_report.tags} %></dd>
-  <%= yield %>
+  <%= yield if block_given? %>
 </dl>

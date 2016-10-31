@@ -36,4 +36,10 @@ Rails.application.routes.draw do
   resources :status_reports, except: [:new, :create]
   resources :templates
 
+  resource :reports, only: [], formats: [:html, :csv, :xsl] do
+    member do
+      get 'weekly_status'
+    end
+  end
+
 end
