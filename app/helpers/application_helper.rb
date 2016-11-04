@@ -71,18 +71,36 @@ module ApplicationHelper
     end
   end
 
+  def project_urgency_badge(project)
+    return if project.nil?
+    text_badge_for_value(project.urgency, Rails.configuration.x.project_urgency)
+  end
+  
+  def project_priority_badge(project)
+    return if project.nil?
+    text_badge_for_value(project.priority, Rails.configuration.x.project_priority)
+  end
+
   def project_status_badge(project)
     return if project.nil?
-    statuses = Rails.configuration.x.project_status
-    text = 'Unknown'
-    bgcolor = 'grey'
-    textcolor = 'white'
-    if statuses.has_key? project.status
-      text = statuses[project.status]["status"]
-      bgcolor = statuses[project.status]["bgcolor"]
-      textcolor = statuses[project.status]["textcolor"]
-    end
+    text_badge_for_value(project.status, Rails.configuration.x.project_status)
+  end
+
+  def text_badge_for_value(value, collection)
+    text, textcolor, bgcolor = text_and_colors_for_value(value, collection)
     content_tag(:span, text, class: "label", style: "color: #{textcolor}; background-color: #{bgcolor}")
+  end
+
+  def text_and_colors_for_value(value, collection)
+    text = value.to_s
+    textcolor = 'black'
+    bgcolor = 'white'
+    if collection.has_key? value
+      text = collection[value]["text"] || text
+      textcolor = collection[value]["textcolor"] || textcolor
+      bgcolor = collection[value]["bgcolor"] || bgcolor
+    end
+    return text, textcolor, bgcolor
   end
 
 end

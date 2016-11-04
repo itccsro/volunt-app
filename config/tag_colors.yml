@@ -1,0 +1,12 @@
+UX: &UX
+  tag: UX
+  bgcolor: orange
+  textcolor: white
+
+UI:
+  <<: *UX
+  tag: UI
+
+design:
+  <<: *UX
+  tag: DESIGN

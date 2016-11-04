@@ -1,0 +1,14 @@
+10:
+  text: Low priority
+  textcolor: black
+  bgcolor: lightblue
+
+20:
+  text: Medium priority
+  textcolor: black
+  bgcolor: lightyellow
+
+30:
+  text: High priority
+  textcolor: black
+  bgcolor: orange

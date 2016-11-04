@@ -3,14 +3,26 @@
   <dd><%= project.name %></dd>
   <dt>Status</dt>
   <dd><%= project_status_badge(project) %></dd>
-  <dt>Leader</dt>
-  <dd><%= profile_with_link(project.owner) %></dd>
+  <dt>Prioritate</dt>
+  <dd><%= project_priority_badge(project) %></dd>
+  <dt>Urgency</dt>
+  <dd><%= project_urgency_badge(project) %></dd>
   <dt>Description<dt>
   <dd><%= sanitize_html_area(project.description) %></dd>
+  <dt>Resultate<dt>
+  <dd><%= sanitize_html_area(project.results) %></dd>
+  <dt>Timeline<dt>
+  <dd><%= sanitize_html_area(project.timeline) %></dd>
+  <dt>Progres<dt>
+  <dd><%= sanitize_html_area(project.progress) %></dd>
+  <dt>Observatii<dt>
+  <dd><%= sanitize_html_area(project.notes) %></dd>
   <dt>Links</dt>
   <dd><%= render partial: 'shared/key_values', locals: {key_values: project.urls } %>
   <dt>Tags</dt>
   <dd><%= render partial: 'shared/tags', locals: {tags: project.tags} %></dd>
+  <dt>Leader</dt>
+  <dd><%= profile_with_link(project.owner) %></dd>
   <%= yield %>
 </dl>
 

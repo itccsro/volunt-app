@@ -2,32 +2,42 @@
 # You cannot change exiting values. If you must, a migration is required.
 
 0:  
-  status: Initial
+  text: Initial
   bgcolor: grey
   textcolor: white
 
 1:
-  status: Executie
+  text: Executie
   bgcolor: green
   textcolor: white
 
 2:
-  status: Blocat
+  text: Blocat
   bgcolor: yellow
   textcolor: black
 
 3:
-  status: Analiza
+  text: Analiza
   bgcolor: grey
   textcolor: black
 
 4:
-  status: Abandonat
+  text: Abandonat
   bgcolor: red
   textcolor: white
 
 5:
-  status: Failed
+  text: Failed
   bgcolor: red
   textcolor: black
+
+6:
+  text: Productie
+  bgcolor: green
+  textcolor: yellow
+
+7:
+  text: Retras
+  bgcolor: gray
+  textcolor: white
 
