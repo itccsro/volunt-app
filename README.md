@@ -1,19 +1,19 @@
-[![Travis build](https://travis-ci.org/gov-ithub/volunt-app.svg?branch=master)](https://travis-ci.org/gov-ithub/volunt-app)
-[![Code Climate](https://codeclimate.com/github/gov-ithub/volunt-app/badges/gpa.svg)](https://codeclimate.com/github/gov-ithub/volunt-app)
+[![Travis build](https://travis-ci.org/civictechro/volunt-app.svg?branch=master)](https://travis-ci.org/civictechro/volunt-app)
+[![Code Climate](https://codeclimate.com/github/civictechro/volunt-app/badges/gpa.svg)](https://codeclimate.com/github/civictechro/volunt-app)
 
-# Gestiunea voluntarilor si proiectelor Gov IT Hub
-Un sistem de gestiune a voluntarilor si proiectelor Gov IT Hub disponibil la http://voluntari.ithub.gov.ro/
+# Gestiunea membrilor si proiectelor CivicTech
+Un sistem de gestiune a membrilor si proiectelor CivicTech disponibil la https://membri.civictech.ro/
 
-Cind aplicatia este folosita de un bursier sau coordinator:
-- Inregistrarea voluntarilor, completarea de profil (locatie, contact, skills, tags)
-- Cautare voluntari dupa locatie, skils, taguri
-- Inregistrarea proiectelor Gov IT Hub
-- Managementul alocarii de voluntari per proiect, incarcare etc
-- Inregistrera progresului pe proiecte, integrare cu GitHub/JIRA
+Cind aplicatia este folosita de un coordinator:
+- Inregistrarea membrilor, completarea de profil (locatie, contact, skills, tags)
+- Cautare membri dupa locatie, skils, taguri
+- Inregistrarea proiectelor CivicTech
+- Managementul alocarii de membri per proiect, incarcare etc
+- Inregistrera progresului pe proiecte, integrare cu GitHub
 - Pozitii disponibile in proiect (openings, jobs)
-- Mass mailing pentru comunitate, voluntari, contributori la proiecte
+- Mass mailing pentru comunitate, contributori la proiecte
 
-Cind aplicatia este folosita de un voluntar:
+Cind aplicatia este folosita de un membru:
 - Signup, aplicare
 - Editare profil personal
 - Acces lista de proiecte, informatii publice in proiect
