@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  
+
   root to: 'static#home'
 
   match '/logout', to: 'static#logout', via: [:get, :post]
-  
+
   # This route is for develoment only, allows to impersonate random site user
   get 'impersonate/:email', to: 'static#impersonate', constraints: {email: /[^\/]+/} if Rails.env.development?
 
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resource :request_reset, only: [:show, :create],  path: '/request-reset'
     resources :validation_tokens, only: [:show, :update]
 
-    
+
     # top level status-reports must precede the nested routes
     # otherwise the nested routes hijack the collection methods
     resources :status_reports,
@@ -31,15 +31,15 @@ Rails.application.routes.draw do
         post 'my/edit', to: 'status_reports#my_edit_post'
       end
     end
-    
-    [:volunteers, :fellows, :applicants, :coordinators].each do |p|
-      resources p do
+
+    {volunteers: 'voluntari', fellows: 'membri'}.each do |k,v|
+      resources k, path: v do
         collection do
           match 'search', via: [:get, :post]
-          get 'assignments' if p == :volunteers
+          get 'assignments' if k == :volunteers
         end
-        if p == :fellows
-          resources :status_reports, shallow: true, path: 'status-reports' if p == :fellows
+        if k == :fellows
+          resources :status_reports, shallow: true, path: 'status-reports' if k == :fellows
         end
       end
     end

@@ -1,7 +1,7 @@
 class FellowsController < ApplicationController
   include ProfilesControllerConcern
 
-  profile_controller :fellow, 'Bursier'
+  profile_controller :fellow, 'Membru'
 
   # 'show' action has special authorization in order to be able to view one own profile
   authorization_required LoginConcern::USER_LEVEL_FELLOW, except: [:index, :new, :create, :show, :edit, :update]
