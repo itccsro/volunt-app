@@ -52,7 +52,7 @@ describe VolunteersController, type: :controller do
           'contacts_string'    => '',
           'location'           => 'Romania',
           'title'              => 'Manager',
-          'workplace'          => 'Guvernul României',
+          'workplace'          => 'CivicTech',
           'skills_string'      => 'Ruby',
           'urls_string'        => '',
           'description'        => 'descriere',
@@ -66,7 +66,7 @@ describe VolunteersController, type: :controller do
       expect(assigns(:profile)).to eq(profile)
       expect(assigns(:profile).full_name).to eq(full_name)
       expect(assigns(:profile).hidden_tags).to eq(['SELF UPDATED'])
-      expect(response).to redirect_to("/volunteers/#{volunteer.id}")
+      expect(response).to redirect_to("/voluntari/#{volunteer.id}")
     end
   end
 
