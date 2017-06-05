@@ -32,7 +32,7 @@ Rails.application.routes.draw do
       end
     end
 
-    {volunteers: 'voluntari', fellows: 'membri'}.each do |k,v|
+    {volunteers: 'voluntari', fellows: 'membri', coordinators: 'advisors'}.each do |k,v|
       resources k, path: v do
         collection do
           match 'search', via: [:get, :post]
