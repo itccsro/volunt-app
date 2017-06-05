@@ -5,7 +5,7 @@
     role: :form) do |f| %>
 
     <%= f.text_field :name, label: 'Nume' %>
-    <%= f.text_field :beneficiary, label: 'Beneficiar', placeholder: 'Ministerul Sanatatii' %>
+    <%= f.text_field :beneficiary, label: 'Partener', placeholder: 'Ministerul Sanatatii' %>
     <%= f.select(:status,
           options_for_project_status(project.status),
           label: 'Status') %>
@@ -18,7 +18,7 @@
     <%= f.text_area :description, label: 'Descriere', data: html_text_area %>
     <%= f.text_area :objective, label: 'Obiectiv', data: html_text_area %>
     <% Rails.configuration.x.project_urls.each do |k,v| %>
-      <%= f.url_field "urls_#{k}".to_sym, 
+      <%= f.url_field "urls_#{k}".to_sym,
           label: v["label"],
           placeholder: v["placeholder"],
           help: v["helptext"] %>
