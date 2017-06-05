@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CivicTech: bursieri</title>
+  <title>CivicTech: Membri</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= csrf_meta_tags %>
   <%= javascript_include_tag "application" %>
@@ -26,11 +26,8 @@
               Profile <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to 'Comunitate', applicants_path %></li>
               <li><%= link_to 'Voluntari', volunteers_path %></li>
               <li><%= link_to 'Membri', fellows_path %></li>
-              <!-- <li><%= link_to 'Coordonatori', coordinators_path %></li>
-              <li role="separator" class="divider"></li> -->
               <li><%= link_to 'Participare', assignments_volunteers_path %></li>
             </ul>
           </li>
