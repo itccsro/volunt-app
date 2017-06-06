@@ -1,9 +1,9 @@
 common: &common
-  digest: voluntari.gov.ro
+  digest: membri.civictech.ro
 
 development:
   <<: *common
-  mail_url_host: test-contribute.rusanu.com
+  mail_url_host: test.civictech.ro
 
 test:
   <<: *common
@@ -11,4 +11,4 @@ test:
 
 production:
   <<: *common
-  mail_url_host: voluntari.ithub.gov.ro
+  mail_url_host: membri.civictech.ro
