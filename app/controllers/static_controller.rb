@@ -11,7 +11,7 @@ class StaticController < ApplicationController
       :password_reset,
       :httpsify], if: :ssl_configured?
   
-  skip_before_filter :verify_authenticity_token, only: [:contacts_signup]
+  skip_before_action :verify_authenticity_token, only: [:contacts_signup]
 
   layout 'static'
 
@@ -37,39 +37,91 @@ class StaticController < ApplicationController
     email = params["email"];
     user = User.find_by(email: email)
     if user
-      @login_presenter = LoginPresenter.new email: email
-      flash[:notice] = "Exista deja un cont pentru #{@signup_presenter.email}"
-      render :login
-      return
-    end
-    
-    # TODO: deduplicate logic with regular Signup code
-    # Create User, no password
-    user = User.create(email: email)
-    if !user.valid?
-      render :home
-      return
-    end
-
-    begin
-      UserMailer.welcome(user).deliver_now
-    rescue Exception=>x
-      Rails.logger.error("signup: #{x.class.name}: #{x.message}")
+      begin
+        UserMailer.reset_password(user).deliver_now
+      rescue Exception=>x
+        Rails.logger.error("contacts_signup: reset_password: #{x.class.name}: #{x.message}")
+      end
+    else
+      user = User.create(email: email)
+      begin
+        UserMailer.welcome(user).deliver_now
+      rescue Exception=>x
+        Rails.logger.error("contacts_signup: welcome: #{x.class.name}: #{x.message}")
+      end
     end
 
     profile = Profile.for_email(email)
     if !profile
-      # New profile. Create from 123contacts data
-      profile = Profile.from_123contacts(params)
-    else
-      profile.append_hidden_tags_value "UID:#{params["uid"]}"
-      profile.append_hidden_tags_value "FID:#{params["fid"]}"
-      profile.append_hidden_tags_value "EID:#{params["entry_id"]}"
-      profile.save
+      profile = Profile.new flags: Profile::PROFILE_FLAG_VOLUNTEER
+    end
+    
+    #Parse the params for 123contactform field
+    # 'controlnameXXX_YY' matches 'controlvalueXXX_YYY'
+    # if value is 'yes' we assume is a checkbox
+    # and we taggify the name
+    tags = ''
+    skills = ''
+    params.each do |k, v|
+      # Search for marcked checkboxes. Value should be "yes"
+      if v == 'yes'
+        # Validate that the key is "controlvalueXXX_YY"
+        m = /controlvalue([\d\_]+)/.match(k)
+        if m
+          # if matched, m[1] captured the XXX_YY part
+          # Look for its corresponding 'controlvalueXXX_YY'
+          choice = params["controlname#{m[1]}"]
+          if choice
+            # The control name is "category - option". 
+            # Remove everything before first -
+            mc = /\A(.*?)\s*-\s*(.*)/.match(choice)
+            # if there is no - the control is ignored
+            if mc
+              # category is captured in mc[1]
+              # Everything after - is captured in mc[2]
+              tagval = mc[2]
+              # check if there is a ' - ', ignore everything after it
+              mt = /(.+)(\s-\s)/.match(tagval)
+              tagval = mt[1] if mt
+              # Some controls (Terms & Conditions) also match
+              # all conditions up to here, so we remove them based on complexity:
+              # no more than 5 words (4 spaces)
+
+              # by convention categories ending with ':' are considered 'Skills'
+              # 123contacts form must respect this convention
+              if mc[1].ends_with?(':')
+                skills += ',' + tagval if tagval.count(' ') < 4
+              else
+                tags += ',' + tagval if tagval.count(' ') < 4
+              end
+            end
+          end
+        end
+      end
     end
 
+    ht = {
+      full_name: "#{params["last_name"]} #{params["first_name"]}",
+      nick_name: params["first_name"],
+      email: params["email"],
+      contacts: {phone: params["phone"]},
+      location: "#{params["city"]}, #{params["country"]}",
+      description: params["description"],
+      hidden_tags: [
+          'NEW PROFILE',
+          'FOR REVIEW',
+          'CIVICTECH',
+          Date.today.to_s,
+          "UID:#{params["uid"]}",
+          "FID:#{params["fid"]}",
+          "EID:#{params["entry_id"]}"],
+      tags_string: tags,
+      skills_string: skills
+      }
+    profile.update(ht)
+    profile.save
   end
-  
+
   def login
     logout_user
     @login_presenter = LoginPresenter.new
