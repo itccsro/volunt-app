@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get '/login', to: 'static#login'
     post '/login', to: 'static#login_post'
     post '/signup', to: 'static#signup'
+    post '/123contacts_signup', to: 'static#contacts_signup'
     get '/signup', to: 'static#home'
     get 'httpsify', to: 'static#httpsify'
 

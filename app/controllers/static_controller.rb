@@ -10,6 +10,9 @@ class StaticController < ApplicationController
       :login_post,
       :password_reset,
       :httpsify], if: :ssl_configured?
+  
+  skip_before_filter :verify_authenticity_token, only: [:contacts_signup]
+
   layout 'static'
 
   def httpsify
@@ -30,6 +33,43 @@ class StaticController < ApplicationController
     @signup_presenter = SignupPresenter.new
   end
 
+  def contacts_signup
+    email = params["email"];
+    user = User.find_by(email: email)
+    if user
+      @login_presenter = LoginPresenter.new email: email
+      flash[:notice] = "Exista deja un cont pentru #{@signup_presenter.email}"
+      render :login
+      return
+    end
+    
+    # TODO: deduplicate logic with regular Signup code
+    # Create User, no password
+    user = User.create(email: email)
+    if !user.valid?
+      render :home
+      return
+    end
+
+    begin
+      UserMailer.welcome(user).deliver_now
+    rescue Exception=>x
+      Rails.logger.error("signup: #{x.class.name}: #{x.message}")
+    end
+
+    profile = Profile.for_email(email)
+    if !profile
+      # New profile. Create from 123contacts data
+      profile = Profile.from_123contacts(params)
+    else
+      profile.append_hidden_tags_value "UID:#{params["uid"]}"
+      profile.append_hidden_tags_value "FID:#{params["fid"]}"
+      profile.append_hidden_tags_value "EID:#{params["entry_id"]}"
+      profile.save
+    end
+
+  end
+  
   def signup
     @signup_presenter = SignupPresenter.new params.fetch(:signup_presenter, {}).permit(:email)
 
