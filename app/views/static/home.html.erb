@@ -1,19 +1,8 @@
 <div class="jumbotron landing">
     <div class="col-lg-offset-6">
       <div class="signup-form">
-				<h2>Inscrie-te in comunitatea CivicTechRo!</h2>
+        <h2><a href="http://civictech.ro">Inscrie-te in comunitatea CivicTechRo!</a></h2>
         <%= render partial: 'shared/notice' %>
-        <%= bootstrap_form_for(@signup_presenter,
-              method: :post,
-              url: signup_path,
-              role: :form) do |f| %>
-            <%= f.email_field :email,
-                placeholder: 'nume@example.com',
-                hide_label: true,
-                input_group_class: 'input-group-lg',
-                append: f.submit('Sign up', class: 'btn btn-primary', id: 'signup-submit'),
-                help: 'Introdu o adresa de email prin care echipa CivicTech România să te poate contacta. Pentru a accesa resursele comunității CivicTechRo vei primi un email automat prin care vei putea accesa contul tau.'  %>
-        <% end %>
       </div>
     </div>
 </div>
