@@ -83,11 +83,13 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings.address = ENV["VOLUNTARI_PROD_EMAIL_SMTP_ADDRESS"]
-  config.action_mailer.smtp_settings.port = ENV["VOLUNTARI_PROD_EMAIL_SMTP_PORT"]
-  config.action_mailer.smtp_settings.domain = ENV["VOLUNTARI_PROD_EMAIL_SMTP_DOMAIN"]
-  config.action_mailer.smtp_settings.user_name = ENV["VOLUNTARI_PROD_EMAIL_SMTP_NAME"]
-  config.action_mailer.smtp_settings.password = ENV["VOLUNTARI_PROD_EMAIL_SMTP_PASSWORD"]
+  config.action_mailer.smtp_settings = { 
+    address: ENV["VOLUNTARI_PROD_EMAIL_SMTP_ADDRESS"],
+    port: ENV["VOLUNTARI_PROD_EMAIL_SMTP_PORT"],
+    domain: ENV["VOLUNTARI_PROD_EMAIL_SMTP_DOMAIN"],
+    user_name: ENV["VOLUNTARI_PROD_EMAIL_SMTP_NAME"],
+    password: ENV["VOLUNTARI_PROD_EMAIL_SMTP_PASSWORD"]
+  }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 end
