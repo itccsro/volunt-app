@@ -45,7 +45,10 @@ gem 'bootstrap-sass', '~> 3.2'
   # Use SCSS for stylesheets
   gem 'sass-rails', '~> 5.0'
 
-  source 'https://rails-assets.org' do
+# use .env
+gem 'dotenv-rails'
+
+ source 'https://rails-assets.org' do
     gem 'rails-assets-jquery', '~>1.9.1'
     gem 'rails-assets-jquery-ui'
     gem 'rails-assets-jquery-ujs'
