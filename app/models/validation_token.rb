@@ -4,10 +4,12 @@ require 'base64'
 class ValidationToken < ActiveRecord::Base
   belongs_to :account, optional: true
   belongs_to :user, optional: true
+  serialize :params, Hash
 
   TOKEN_CATEGORY_EMAIL_CONFIRMATION = 1
   TOKEN_CATEGORY_PASSWORD_RESET = 2
   TOKEN_CATEGORY_INVITATION = 3
+  TOKEN_CATEGORY_123CONTACTS = 4
 
   def self.find_token(token)
     begin
@@ -47,12 +49,24 @@ class ValidationToken < ActiveRecord::Base
     self.category == TOKEN_CATEGORY_INVITATION
   end
 
+  def is_123contacts?
+    self.category == TOKEN_CATEGORY_123CONTACTS
+  end
+
   def to_param
     token_base64
   end
 
   def token_base64
     Base64.urlsafe_encode64(self.token)
+  end
+
+  def self.confirm_123contacts(user, params)
+    token = SecureRandom.hex 16 
+    self.create(user: user, 
+      category: TOKEN_CATEGORY_123CONTACTS,
+      token: token,
+      params: params)
   end
 
   def self.confirm_email(user, force_new = false)

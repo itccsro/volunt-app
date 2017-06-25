@@ -13,8 +13,8 @@ class UserMailer < ApplicationMailer
     mail(to: @to, subject: 'Reseteaza parola de voluntar CivicTech')
   end
 
-  def welcome(user)
-    validation = ValidationToken.reset_password user
+  def welcome(user, params)
+    validation = ValidationToken.confirm_123contacts user, params
     @url = validation_token_url(validation)
     @user = user
     @to = @user.email
