@@ -31,14 +31,15 @@ hr {
 	background: url('header.png') top center no-repeat;
 }
 .nav > li > a {
-	color: #404040;
+	color: #fff;
 	font-weight: 600;
 	font-size: 16px;
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
 	background-color: transparent;
-	color: #a31e60;
+	color: #fff;
+	text-decoration: underline;
 }
 .dropdown-menu {
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.175);
