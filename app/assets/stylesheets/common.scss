@@ -26,7 +26,8 @@ hr {
 	padding: 10px 0;
 	margin: 0;
 	background-color: #20b9b9;
-	background-size: cover;
+	background-size: cover !important;
+	border: none;
 	background: url('header.png') top center no-repeat;
 }
 .nav > li > a {
