@@ -28,7 +28,7 @@ hr {
 	background-color: #20b9b9;
 	background-size: cover !important;
 	border: none;
-	background: url('header.png') top center no-repeat;
+	background: image-url('header.png') top center no-repeat;
 }
 .nav > li > a {
 	color: #fff;
@@ -98,6 +98,7 @@ hr {
 }
 .jumbotron {
 	padding: 80px 0;
+	height: 60vh;
 }
 .jumbotron h2 {
 	font-weight: bold;
@@ -108,7 +109,6 @@ hr {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, .66);
 	top: 0;
 }
 
