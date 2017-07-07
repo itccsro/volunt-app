@@ -5,6 +5,11 @@
  * The CSS will be applied directly to matched tags as 'style: ...'
 */
 
+img.email-header-png {
+  position: absolute;
+  z-index: -1;
+}
+
 table {
   border-collapse: collapse;
   border-spacing: 0;

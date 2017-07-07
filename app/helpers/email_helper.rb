@@ -1,8 +1,12 @@
 module EmailHelper
-  def attached_image_tag(image, **options)
+  def attached_image_url(image)
     attachments[image] = File.read(
       Rails.root.join('app', 'assets', 'images', image))
-    image_tag attachments[image].url, **options
+    attachments[image].url
+  end
+
+  def attached_image_tag(image, **options)
+    image_tag  attached_image_url(image), **options
   end
 
   def attached_chart_tag(name, chart, **options)

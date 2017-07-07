@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
   add_template_helper(EmailHelper)
-  default from: 'hello@civictech.ro'
+  default from: 'membri@civictech.ro'
   layout 'mailer'
 end
