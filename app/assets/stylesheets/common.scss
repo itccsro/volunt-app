@@ -13,8 +13,29 @@ select,
 textarea {
 	font-family: 'Open Sans', 'sans-serif';
 }
+.noto {font-family: 'Noto Serif', serif;}
+@media (max-width: 768px) {
+  .main-content{
+    min-height: 60vh!important;
+  }
+  .inscriete img{
+    width: 80%;
+  }
+  .jumbotron {
+    padding: 10px 0!important;
+  }
+  .signup-form {
+    padding: 5% 0 0 10%!important;
+    margin: 0;
+  }
+}
+@media (max-width: 640px) {
+  .inscriete img{
+    width: 60%;
+  }
+}
 a.navbar-brand {
-	padding: 15px 0 0 0;
+  padding: 15px 0 0 10px;
 	img {
 		max-height: 100%;
 	}
@@ -51,7 +72,7 @@ hr {
 	background: #fff;
 }
 .navbar-toggle {
-	background: #808080;
+	background: transparent;
 }
 .login-form,
 .signup-form {
