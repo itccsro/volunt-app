@@ -4,20 +4,27 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&subset=latin-ext');
 
 // General styles
-body {
-	background: #f2f2f2;
+* {
+  box-sizing: border-box;
 }
-body,
-input,
-select,
-textarea {
-	font-family: 'Open Sans', 'sans-serif';
+html,
+body {
+  font-family: 'Open Sans', 'Helvetica-Neue', Arial, sans-serif;
+  background: #f2f2f2;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 .noto {font-family: 'Noto Serif', serif;}
+.main-footer span a{
+  background: #20B9B9;
+  color: #000;
+  font-weight: bold;
+  padding: 0 5px;
+  box-shadow: 0 0 0 2px #787878 inset;
+  -moz-box-shadow: 0 0 0 2px #787878 inset;
+}
 @media (max-width: 768px) {
-  .main-content{
-    min-height: 60vh!important;
-  }
   .inscriete img{
     width: 80%;
   }
