@@ -10,7 +10,7 @@ class UserMailer < ApplicationMailer
     @url = validation_token_url(validation)
     @user = user
     @to = email || @user.email
-    mail(to: @to, subject: 'Reseteaza parola de voluntar CivicTech')
+    mail(to: @to, subject: 'Resetează parola de voluntar civictechᴿᴼ')
   end
 
   def welcome(user, params)
@@ -18,6 +18,6 @@ class UserMailer < ApplicationMailer
     @url = validation_token_url(validation)
     @user = user
     @to = @user.email
-    mail(to: @user.email, subject: 'Bine ai venit in comunitatea CivicTech')
+    mail(to: @user.email, subject: 'Bine ai venit în comunitatea civictechᴿᴼ')
   end
 end
