@@ -9,7 +9,7 @@ RSpec.describe UserMailer, type: :mailer do
     let!(:mail) { described_class.reset_password(volunteer).deliver_now }
 
     it 'sends reset password' do
-      expect(mail.subject).to eq('Reseteaza parola de voluntar CivicTech')
+      expect(mail.subject).to eq('Resetează parola de voluntar civictechᴿᴼ')
     end
     it 'sends to primary email' do
       expect(mail.to).to eq([volunteer.email])
