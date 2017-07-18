@@ -56,7 +56,7 @@ class ValidationTokensController < ApplicationController
     else
       render :unknown, status: :conflict
     end
-    
+
   end
 
   def reset_password_presenters_path
@@ -73,7 +73,7 @@ class ValidationTokensController < ApplicationController
     if !profile
       profile = Profile.new flags: Profile::PROFILE_FLAG_VOLUNTEER
     end
-    
+
     #Parse the params for 123contactform field
     # 'controlnameXXX_YY' matches 'controlvalueXXX_YYY'
     # if value is 'yes' we assume is a checkbox
@@ -90,7 +90,7 @@ class ValidationTokensController < ApplicationController
           # Look for its corresponding 'controlvalueXXX_YY'
           choice = params["controlname#{m[1]}"]
           if choice
-            # The control name is "category - option". 
+            # The control name is "category - option".
             # Remove everything before first -
             mc = /\A(.*?)\s*-\s*(.*)/.match(choice)
             # if there is no - the control is ignored
@@ -108,9 +108,9 @@ class ValidationTokensController < ApplicationController
               # by convention categories ending with ':' are considered 'Skills'
               # 123contacts form must respect this convention
               if mc[1].ends_with?(':')
-                skills += tagval if tagval.count(' ') < 4 + ','
+                skills += tagval if tagval.count(' ') < 4 + ', '
               else
-                tags += ',' + tagval if tagval.count(' ') < 4
+                tags += tagval if tagval.count(' ') < 4 + ', '
               end
             end
           end
