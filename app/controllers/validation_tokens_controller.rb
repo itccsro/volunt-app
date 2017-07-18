@@ -108,7 +108,7 @@ class ValidationTokensController < ApplicationController
               # by convention categories ending with ':' are considered 'Skills'
               # 123contacts form must respect this convention
               if mc[1].ends_with?(':')
-                skills += ',' + tagval if tagval.count(' ') < 4
+                skills += tagval if tagval.count(' ') < 4 + ','
               else
                 tags += ',' + tagval if tagval.count(' ') < 4
               end
