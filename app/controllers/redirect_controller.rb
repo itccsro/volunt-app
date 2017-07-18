@@ -7,7 +7,7 @@ class RedirectController < ApplicationController
     profile = Profile.for_email(current_user_email)
     if profile.nil?
       logout_user
-      redirect_to home_path
+      redirect_to root_path
     elsif profile.is_coordinator?
       redirect_to coordinator_path(profile)
     elsif profile.is_fellow?
@@ -16,7 +16,7 @@ class RedirectController < ApplicationController
       redirect_to volunteer_path(profile)
     else
       logout_user
-      redirect_to home_path
+      redirect_to root_path
     end
   end
 end
