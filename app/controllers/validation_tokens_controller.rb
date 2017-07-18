@@ -108,9 +108,10 @@ class ValidationTokensController < ApplicationController
               # by convention categories ending with ':' are considered 'Skills'
               # 123contacts form must respect this convention
               if mc[1].ends_with?(':')
-                skills += tagval if tagval.count(' ') < 4 + ', '
+                Rails.logger.debug "skills: #{skills.inspect} tagval: #{tagval} c: #{tagval.count(' ')}"
+                skills += tagval + ', ' if tagval.count(' ') < 4
               else
-                tags += tagval if tagval.count(' ') < 4 + ', '
+                tags += tagval + ', ' if tagval.count(' ') < 4
               end
             end
           end
