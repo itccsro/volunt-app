@@ -41,12 +41,12 @@ class ValidationTokensController < ApplicationController
         user.password = @reset_password_presenter.password
         user.password_confirmation = @reset_password_presenter.password_confirmation
         if user.save
-          login_user(user)
           notice = "Parola pentru #{user.email} a fost schimbata"
           if @token.is_123contacts?
             create_or_update_profile
             notice += " si profilul a fost modificat cu datele introduse in formularul civictech.ro"
           end
+          login_user(user)
           redirect_to me_path, notice: notice
         else
           @reset_password_presenter.errors << user.errors
@@ -108,7 +108,6 @@ class ValidationTokensController < ApplicationController
               # by convention categories ending with ':' are considered 'Skills'
               # 123contacts form must respect this convention
               if mc[1].ends_with?(':')
-                Rails.logger.debug "skills: #{skills.inspect} tagval: #{tagval} c: #{tagval.count(' ')}"
                 skills += tagval + ', ' if tagval.count(' ') < 4
               else
                 tags += tagval + ', ' if tagval.count(' ') < 4
