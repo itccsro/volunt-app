@@ -136,6 +136,9 @@ class ValidationTokensController < ApplicationController
       tags_string: tags,
       skills_string: skills
       }
+    if profile.flags < Profile::PROFILE_FLAG_VOLUNTEER
+      ht[:flags] = Profile::PROFILE_FLAG_VOLUNTEER
+    end
     profile.update(ht)
     profile.save
   end
