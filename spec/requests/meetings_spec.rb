@@ -47,22 +47,22 @@ RSpec.describe "Meetings", type: :request do
       end
       it 'cannot GET' do
         get_helpers(meeting) do |url|
-          # must re-login for each case
+          # permissions invalid
           login :volunteer
           get url, https
-          expect(response).to redirect_to(login_path)
+          expect(response).to redirect_to(permission_error_path)
         end
       end
       it 'cannot DELETE' do 
         expect {
           delete meeting_path(meeting), https
-          expect(response).to redirect_to(login_path)
+          expect(response).to redirect_to(permission_error_path)
         }.not_to change(Meeting, :count)
       end
       it "cannot POST" do
         expect {
           post meetings_path, https
-          expect(response).to redirect_to(login_path)
+          expect(response).to redirect_to(permission_error_path)
         }.not_to change(Meeting, :count)
       end
     end
