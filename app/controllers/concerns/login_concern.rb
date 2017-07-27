@@ -111,7 +111,8 @@ module LoginConcern
   module ClassMethods
     def authorization_required(required_level = USER_LEVEL_FELLOW, opts={})
       before_action opts do
-        redirect_to login_path, notice: 'Higher level authorization is required to access requested resource' if !is_user_logged_in? or !is_user_level_authorized?(required_level)
+        redirect_to login_path, notice: 'You must be logged in to access requested resource.' if !is_user_logged_in?
+        redirect_to permission_error_path if !is_user_level_authorized?(required_level)
       end
     end
   end
