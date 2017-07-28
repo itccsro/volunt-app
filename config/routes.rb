@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get 'me', to: 'redirect#me'
     get '/login', to: 'static#login'
     post '/login', to: 'static#login_post'
+    get '/permission_error', to: 'static#permission_error'
     post '/123contacts_signup', to: 'static#contacts_signup'
     get 'httpsify', to: 'static#httpsify'
 
