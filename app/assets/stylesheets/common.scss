@@ -365,3 +365,21 @@ span.export-csv {
 .icon-user-circle-o:before {
 	content: '\f2be';
 } /* '' */
+.nav li a.btn{
+margin-top:10px !important;
+}
+.btn-outline {
+    background-color: #fff;
+    color: inherit;
+    transition: all .5s;
+    text-decoration:none!important;
+    padding-top: 5px!important;
+    padding-bottom: 5px!important;
+}
+
+.btn-primary.btn-outline {
+    color: #428bca;
+}
+.btn-primary.btn-outline:hover{
+  color: #fff;
+}
