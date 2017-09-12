@@ -3,6 +3,10 @@ require 'base64'
 class ValidationTokensController < ApplicationController
   include ActiveSupport::Callbacks
   include LoginConcern
+  include SslConfig
+
+  force_ssl if: :ssl_configured?
+
   helper_method :reset_password_presenters_path
   before_action :find_token
   define_callbacks :confirm_user_email
