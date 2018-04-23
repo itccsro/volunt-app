@@ -32,6 +32,9 @@ gem 'premailer-rails'
 # Bootstrap-form for bootstraop styled forms
 gem 'bootstrap_form', git: 'https://github.com/bootstrap-ruby/rails-bootstrap-forms.git'
 
+# Nokogiri version comes from bootstrap-form via specs
+gem 'nokogiri', '~> 1.8.2'
+
 # email model validator
 gem 'email_validator'
 
