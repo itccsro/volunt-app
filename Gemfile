@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0'
+gem 'rails', '~> 5.0.7'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -44,9 +44,9 @@ gem 'bootstrap-sass', '~> 3.2'
 # Gems used only for assets and not required
 # in production environments by default.
 # group :assets do
-  gem 'sprockets' #, '=2.11.0'
+  gem 'sprockets' , '>= 3.7.2' #, '=2.11.0'
   # Use SCSS for stylesheets
-  gem 'sass-rails', '~> 5.0'
+  gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 
 # use .env
 gem 'dotenv-rails'
