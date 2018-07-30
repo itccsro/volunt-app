@@ -13,6 +13,9 @@
 	          <%= f.email_field :email %>
 	          <%= f.password_field :password,
 	            help: "#{link_to 'Ai uitat parola?', request_reset_path}".html_safe %>
+            <div class="form-group">
+              <div class="col-sm-offset-3 col-sm-6"><%= recaptcha_tags %></div>
+            </div>
 	          <%= f.submit 'Login', class: 'btn btn-primary' %>
 	      <% end %>
 	    </div>

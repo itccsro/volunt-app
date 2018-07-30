@@ -54,7 +54,7 @@ class StaticController < ApplicationController
     if (@login_presenter.valid?)
       user = User.where(email: @login_presenter.email).first
     end
-    if (user && user.is_password_match?(@login_presenter.password))
+    if (verify_recaptcha(model: @login_presenter) && user && user.is_password_match?(@login_presenter.password))
       login_user(user)
       redirect_to root_path
     else
