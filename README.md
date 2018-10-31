@@ -1,28 +1,28 @@
 [![Travis build](https://travis-ci.org/civictechro/volunt-app.svg?branch=master)](https://travis-ci.org/civictechro/volunt-app)
 [![Code Climate](https://codeclimate.com/github/civictechro/volunt-app/badges/gpa.svg)](https://codeclimate.com/github/civictechro/volunt-app)
 
-# Gestiunea membrilor si proiectelor CivicTech
-Un sistem de gestiune a membrilor si proiectelor CivicTech disponibil la https://membri.civictech.ro/
+# Gestiunea membrilor și proiectelor CivicTech
+Un sistem de gestiune a membrilor și proiectelor CivicTech disponibil la https://membri.civictech.ro/
 
-Cind aplicatia este folosita de un coordinator:
-- Inregistrarea membrilor, completarea de profil (locatie, contact, skills, tags)
-- Cautare membri dupa locatie, skils, taguri
-- Inregistrarea proiectelor CivicTech
-- Managementul alocarii de membri per proiect, incarcare etc
-- Inregistrera progresului pe proiecte, integrare cu GitHub
-- Pozitii disponibile in proiect (openings, jobs)
+Când aplicația este folosită de un coordinator:
+- Înregistrarea membrilor, completarea de profil (locație, contact, skills, tags)
+- Căutare membrii după locație, skills, taguri
+- Înregistrarea proiectelor CivicTech
+- Managementul alocării de membrii per proiect, încarcare etc
+- Înregistrarea progresului pe proiecte, integrare cu GitHub
+- Poziții disponibile în proiect (openings, jobs)
 - Mass mailing pentru comunitate, contributori la proiecte
 
-Cind aplicatia este folosita de un membru:
+Când aplicația este folosită de un membru:
 - Signup, aplicare
 - Editare profil personal
-- Acces lista de proiecte, informatii publice in proiect
-- Acces lista de pozitii, cautare dupa skills/atribute
-- Aplicare la pozitii (disponibilitate de a lucra la un proiect)
+- Acces listă de proiecte, informații publice în proiect
+- Acces listă de poziții, căutare după skills/attribute
+- Aplicare la poziții (disponibilitate de a lucra la un proiect)
 
 ## Install
 
-Applicatia se conecteaza la o baza de PostgreSQL.
+Applicația se conectează la o baza de date PostgreSQL.
 
 ```
 psql
