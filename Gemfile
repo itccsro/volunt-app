@@ -13,7 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '>= 4.3.4'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -39,7 +39,7 @@ gem 'nokogiri', '~> 1.8.2'
 gem 'email_validator'
 
 # gem 'sass-rails', git: 'https://github.com/rails/sass-rails.git'
-gem 'bootstrap-sass', '~> 3.2'
+gem 'bootstrap-sass', '~> 3.4', '>= 3.4.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
