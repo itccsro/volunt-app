@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0'
+gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -13,7 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '>= 4.2.1'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -27,7 +27,7 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 
 # Premailer for HTM/CSS mail formating
-gem 'premailer-rails'
+gem 'premailer-rails', '>= 1.9.4'
 
 # Bootstrap-form for bootstraop styled forms
 gem 'bootstrap_form', git: 'https://github.com/bootstrap-ruby/rails-bootstrap-forms.git'
@@ -46,10 +46,10 @@ gem 'bootstrap-sass', '~> 3.2'
 # group :assets do
   gem 'sprockets' #, '=2.11.0'
   # Use SCSS for stylesheets
-  gem 'sass-rails', '~> 5.0'
+  gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 
 # use .env
-gem 'dotenv-rails'
+gem 'dotenv-rails', '>= 2.2.2'
 
 gem 'recaptcha'
 
@@ -64,7 +64,7 @@ gem 'recaptcha'
     gem 'rails-assets-google-code-prettify'
     gem 'rails-assets-bowser'
   end
-  gem 'summernote-rails'
+  gem 'summernote-rails', '>= 0.8.1.1'
 #end
 
 group :development, :test do
@@ -73,8 +73,8 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'rspec-rails', git: 'https://github.com/rspec/rspec-rails.git'
   gem 'shoulda-matchers', '~> 3.1'
-  gem 'factory_girl_rails', '~> 4.0'
-  gem 'rails-controller-testing'
+  gem 'factory_girl_rails', '~> 4.7', '>= 4.7.0'
+  gem 'rails-controller-testing', '>= 0.1.0'
 end
 
 group :development do
